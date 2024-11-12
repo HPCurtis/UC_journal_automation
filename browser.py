@@ -8,16 +8,16 @@ import time
 
 # sudo docker run -it uc must be run for following to work
 # Set these to work in server enviroment and to work in docker containerised enviroment.
-chrome_options = Options()
-chrome_options.add_argument("--no-sandbox")
-chrome_options.add_argument("--headless")
+#chrome_options = Options()
+#chrome_options.add_argument("--no-sandbox")
+#chrome_options.add_argument("--headless")
 
 class Browser:
     browser, service = None, None
 
     def __init__(self):
         # no need to get the driver binary or correct version now.
-        self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options = chrome_options)
+        self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))#, options = chrome_options)
 
     def open_page(self, url: str):
         self.browser.get(url)
